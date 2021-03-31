@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tipCalculator.css">
+
+</head>
+<body>
+    <div class="main-container">
+        <h1>Tip Calculator</h1>
+        <label for="bill">Bill Amount ($)</label>
+        <input type="text" class="bill" placeholder="bill amount">
+        <label for="tip">Tip Amount (%)</label>
+        <input type="text" class="tip" placeholder="tip %">
+        <button onClick="tipCalc()">Calculate</button>
+    </div>
+</body>
+<script>
+    function tipCalc() {
+        const billCost = document.querySelector(".bill").value  
+        const billAmount = parseInt(billCost)
+
+        const tipAmount = document.querySelector(".tip").value  
+        const tipPercentage = parseInt(tipAmount)
+
+        const total = billAmount * (tipPercentage / 100)
+        const totalOfBill = Number(total + tipPercentage)
+        const newDiv = document.createElement("div")
+        const ulList = document.createElement("ul")
+        const liList = document.createElement("li")
+        const body = document.body
+        body.append(newDiv)
+        newDiv.append(ulList)
+        ulList.append(liList)
+       
+        liList.append(`You total tip amount is ${total.toFixed(2)} and your total bill amount is ${totalOfBill.toFixed(2)}`)
+
+
+    }
+
+
+</script>
+</html>
